@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "../context/GlobalState"; //context provider
+
 export const Transaction = ({ transaction }) => {
   const { deleteTransaction } = useContext(GlobalContext);
+
+  //definig sign
   const sign = transaction.amount < 0 ? "-" : "+";
+
   return (
     <li className={transaction.amount < 0 ? "minus" : "plus"}>
       {transaction.text}{" "}

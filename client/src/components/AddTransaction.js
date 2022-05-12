@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+
 export const AddTransaction = () => {
-  const { addTransaction } = useContext(GlobalContext);
+  const { addTransaction } = useContext(GlobalContext); //context api
   const [amount, setAmount] = useState(0);
   const [text, setText] = useState("");
+
+  //new transaction submit action
   const onSubmit = async (e) => {
     e.preventDefault();
     const newExpense = {
@@ -11,6 +14,7 @@ export const AddTransaction = () => {
       text,
       amount: +amount,
     };
+
     await addTransaction(newExpense);
     setText("");
     setAmount(0);
